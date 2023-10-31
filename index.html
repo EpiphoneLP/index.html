@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>index</title>
+    <title>Mobile-Friendly Continuous Typing Code Generator</title>
     <style>
         html, body {
             margin: 0;
@@ -71,7 +71,7 @@
                     codeContainer.scrollTop = codeContainer.scrollHeight;
                     setTimeout(() => {
                         typeCode(codeExample, charIndex + 1).then(resolve);
-                    }, 0.00000001); // Doubled speed
+                    }, 0.78125); // Doubled speed (0.78125ms interval)
                 } else {
                     resolve();
                 }
