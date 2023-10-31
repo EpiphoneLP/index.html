@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Mobile-Friendly Continuous Typing Code Generator</title>
+    <meta name="theme-color" content="black"> <!-- Set tab color to black -->
     <style>
         html, body {
             margin: 0;
@@ -49,7 +50,7 @@
     <script>
         const codeExamples = [
             "console.log('Hello, World!');", // JavaScript
-            "public class HelloWorld { public static void main(String[] args) { System.out.println('Hello, World!'); } }", // Java
+            "public class HelloWorld { public static main(String[] args) { System.out.println('Hello, World!'); } }", // Java
             "print('Hello, World!')", // Python
             "const numbers = [1, 2, 3, 4, 5]; const sum = numbers.reduce((acc, num) => acc + num, 0);", // JavaScript (Array)
             "def fibonacci(n): return n if n <= 1 else fibonacci(n-1) + fibonacci(n-2);", // Python (Fibonacci)
@@ -88,9 +89,6 @@
         }
 
         generateCode();
-
-        // Add this script to enter fullscreen mode
-        document.documentElement.requestFullscreen();
     </script>
 </body>
 </html>
