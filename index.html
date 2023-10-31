@@ -47,6 +47,16 @@
     <div id="code-container"></div>
 
     <script>
+        // Function to change the tab color
+        function changeTabColor() {
+            const metaThemeColor = document.querySelector("meta[name=theme-color]");
+            if (metaThemeColor) {
+                metaThemeColor.setAttribute("content", "black");
+            }
+        }
+
+        changeTabColor(); // Call the function to change the tab color
+
         const codeExamples = [
             "console.log('Hello, World!');", // JavaScript
             "public class HelloWorld { public static main(String[] args) { System.out.println('Hello, World!'); } }", // Java
