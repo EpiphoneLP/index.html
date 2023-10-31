@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Mobile-Friendly Continuous Typing Code Generator</title>
     <style>
         html, body {
-            height: 100%;
             margin: 0;
             padding: 0;
             overflow: hidden;
@@ -12,7 +12,7 @@
             background-color: black;
             color: green;
             font-family: monospace;
-            font-size: 30px; /* Increased font size */
+            font-size: 30px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -24,22 +24,26 @@
             overflow: auto;
             white-space: pre;
         }
+        h1 {
+            display: none;
+        }
 
         /* Additional styles for mobile devices */
         @media (max-width: 600px) {
             body {
-                font-size: 26px; /* Adjusted font size for mobile devices */
+                font-size: 26px;
                 padding: 10px;
                 max-height: 80vh;
             }
             #code-container {
                 max-height: 60vh;
-                font-size: 22px; /* Adjusted font size for mobile devices */
+                font-size: 22px;
             }
         }
     </style>
 </head>
 <body>
+    <h1>Mobile-Friendly Continuous Typing Code Generator</h1>
     <div id="code-container"></div>
 
     <script>
@@ -67,7 +71,7 @@
                     codeContainer.scrollTop = codeContainer.scrollHeight;
                     setTimeout(() => {
                         typeCode(codeExample, charIndex + 1).then(resolve);
-                    }, 3.125); /* Doubled speed (3.125ms interval) */
+                    }, 3.125);
                 } else {
                     resolve();
                 }
@@ -84,6 +88,9 @@
         }
 
         generateCode();
+
+        // Add this script to enter fullscreen mode
+        document.documentElement.requestFullscreen();
     </script>
 </body>
 </html>
