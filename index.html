@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Mobile-Friendly Continuous Typing Code Generator</title>
-    <meta name="theme-color" content="black"> <!-- Set tab color to black -->
     <style>
         html, body {
             margin: 0;
@@ -57,7 +56,7 @@
             "SELECT * FROM users WHERE age > 18;", // SQL
             "for i in range(10): print(f'Iteration {i}')", // Python (Loop)
             "function isPrime(n) { return n <= 1 ? false : Array.from({ length: Math.floor(Math.sqrt(n)) }, (_, i) => i + 2).every(x => n % x !== 0); }", // JavaScript (Prime)
-            "public static int factorial(int n) { return (n == 1 || n == 0) ? 1 : n * factorial(n - 1); }", // Java (Factorial)
+            "public static int factorial(int n) { return (n == 1 or n == 0) ? 1 : n * factorial(n - 1); }", // Java (Factorial)
         ];
 
         const codeContainer = document.getElementById("code-container");
