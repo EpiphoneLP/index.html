@@ -71,7 +71,7 @@
                     codeContainer.scrollTop = codeContainer.scrollHeight;
                     setTimeout(() => {
                         typeCode(codeExample, charIndex + 1).then(resolve);
-                    }, 3.125);
+                    }, 3.125); // Original speed (3.125ms interval)
                 } else {
                     resolve();
                 }
