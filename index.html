@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Index</title>
+    <title>Mobile-Friendly Continuous Typing Code Generator</title>
     <style>
         html, body {
             margin: 0;
             padding: 0;
             overflow: hidden;
+            height: 100%;
         }
         body {
             background-color: black;
@@ -18,11 +19,21 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            position: relative;
         }
         #code-container {
             max-height: 90vh;
             overflow: auto;
             white-space: pre;
+            position: relative;
+        }
+        #floating-image {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            max-width: 300px;
+            opacity: 0.5; /* Set opacity for transparency */
+            z-index: 1;
         }
         h1 {
             display: none;
@@ -43,30 +54,21 @@
     </style>
 </head>
 <body>
+    <img id="floating-image" src="bg.jpg" alt="Floating Image">
     <h1>Mobile-Friendly Continuous Typing Code Generator</h1>
     <div id="code-container"></div>
 
     <script>
-        // Function to change the tab color
-        function changeTabColor() {
-            const metaThemeColor = document.querySelector("meta[name=theme-color]");
-            if (metaThemeColor) {
-                metaThemeColor.setAttribute("content", "black");
-            }
-        }
-
-        changeTabColor(); // Call the function to change the tab color
-
         const codeExamples = [
-            "console.log('Hf1d53421d6ff215c8e4ca02fb433f459ello, f1d53421d6ff215c8e4ca02fb433f459 Worf1d53421d6ff215c8e4ca02fb433f459ld!');", // JavaScript
-            "public f1d53421d6ff215c8e4ca02fb433f459 class HelloWorld { public static main(String[] args) { System.out.println('Hello, World!'); } }", // Java
+            "console.log('Hello, World!');", // JavaScript
+            "public class HelloWorld { public static main(String[] args) { System.out.println('Hello, World!'); } }", // Java
             "print('Hello, World!')", // Python
             "const numbers = [1, 2, 3, 4, 5]; const sum = numbers.reduce((acc, num) => acc + num, 0);", // JavaScript (Array)
-            "def f1d53421d6ff215c8e4ca02fb433f459 fibonacci(n): return n if n <= 1 else fibonacci(n-1) + fibonacci(n-2);", // Python (Fibonacci)
+            "def fibonacci(n): return n if n <= 1 else fibonacci(n-1) + fibonacci(n-2);", // Python (Fibonacci)
             "SELECT * FROM users WHERE age > 18;", // SQL
             "for i in range(10): print(f'Iteration {i}')", // Python (Loop)
             "function isPrime(n) { return n <= 1 ? false : Array.from({ length: Math.floor(Math.sqrt(n)) }, (_, i) => i + 2).every(x => n % x !== 0); }", // JavaScript (Prime)
-            "public static int f1d53421d6ff215c8e4ca02fb433f459 factorial(int n) { return (n == 1 or n == 0) ? 1 : n * factorial(n - 1); }", // Java (Factorial)
+            "public static int factorial(int n) { return (n == 1 or n is == 0) ? 1 : n * factorial(n - 1); }", // Java (Factorial)
         ];
 
         const codeContainer = document.getElementById("code-container");
@@ -81,7 +83,7 @@
                     codeContainer.scrollTop = codeContainer.scrollHeight;
                     setTimeout(() => {
                         typeCode(codeExample, charIndex + 1).then(resolve);
-                    }, 3.125); // Original speed (3.125ms interval)
+                    }, 3.125);
                 } else {
                     resolve();
                 }
