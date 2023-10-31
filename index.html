@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        body {
+            background-color: black;
+            color: green;
+            font-family: monospace;
+            font-size: 30px; /* Increased font size */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        #code-container {
+            max-height: 90vh;
+            overflow: auto;
+            white-space: pre;
+        }
+
+        /* Additional styles for mobile devices */
+        @media (max-width: 600px) {
+            body {
+                font-size: 26px; /* Adjusted font size for mobile devices */
+                padding: 10px;
+                max-height: 80vh;
+            }
+            #code-container {
+                max-height: 60vh;
+                font-size: 22px; /* Adjusted font size for mobile devices */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="code-container"></div>
+
+    <script>
+        const codeExamples = [
+            "console.log('Hello, World!');", // JavaScript
+            "public class HelloWorld { public static void main(String[] args) { System.out.println('Hello, World!'); } }", // Java
+            "print('Hello, World!')", // Python
+            "const numbers = [1, 2, 3, 4, 5]; const sum = numbers.reduce((acc, num) => acc + num, 0);", // JavaScript (Array)
+            "def fibonacci(n): return n if n <= 1 else fibonacci(n-1) + fibonacci(n-2);", // Python (Fibonacci)
+            "SELECT * FROM users WHERE age > 18;", // SQL
+            "for i in range(10): print(f'Iteration {i}')", // Python (Loop)
+            "function isPrime(n) { return n <= 1 ? false : Array.from({ length: Math.floor(Math.sqrt(n)) }, (_, i) => i + 2).every(x => n % x !== 0); }", // JavaScript (Prime)
+            "public static int factorial(int n) { return (n == 1 || n == 0) ? 1 : n * factorial(n - 1); }", // Java (Factorial)
+        ];
+
+        const codeContainer = document.getElementById("code-container");
+
+        function typeCode(codeExample, charIndex) {
+            return new Promise((resolve) => {
+                if (charIndex < codeExample.length) {
+                    if (codeContainer.textContent.length % 41 === 0) {
+                        codeContainer.innerHTML += '<br>';
+                    }
+                    codeContainer.innerHTML += codeExample.charAt(charIndex);
+                    codeContainer.scrollTop = codeContainer.scrollHeight;
+                    setTimeout(() => {
+                        typeCode(codeExample, charIndex + 1).then(resolve);
+                    }, 3.125); /* Doubled speed (3.125ms interval) */
+                } else {
+                    resolve();
+                }
+            });
+        }
+
+        async function generateCode() {
+            while (true) {
+                for (const codeExample of codeExamples) {
+                    await typeCode(codeExample, 0);
+                    codeContainer.innerHTML += '\n';
+                }
+            }
+        }
+
+        generateCode();
+    </script>
+</body>
+</html>
